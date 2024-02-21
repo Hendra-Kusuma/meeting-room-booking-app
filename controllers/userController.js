@@ -1,9 +1,12 @@
-const UserModel = require('../models/user')
+const UserModel = require('../models/index')
 
 async function getUsers (req, res){
     try {
-        const clients = await UserModel.findAll()
-        res.json(clients)
+        const user = await UserModel.user.findAll()
+        return res.status(200).json({
+            message:'user fetched', 
+            user: user
+        })
     } catch (error) {
         res.status(500).json({ message: error.message })
     }

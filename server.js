@@ -7,9 +7,8 @@ const morgan = require("morgan");
 
 const clientsRoute = require('./routes/clientsRoute')
 const usersRoute = require('./routes/userRoute')
-
-app.use("/api", clientsRoute)
-app.use("/api", usersRoute)
+const roomsRoute = require('./routes/roomsRoute')
+const roomUsageRoute = require('./routes/roomUsageRouter')
 
 // LOGGING MIDDLEWARE
 app.use(morgan('dev'));
@@ -18,6 +17,9 @@ app.use(cookieParser())
 
 // ROUTES
 app.use("/api", clientsRoute)
+app.use("/api", usersRoute)
+app.use("/api", roomsRoute)
+app.use("/api", roomUsageRoute)
 
 
 app.listen(port, () => {

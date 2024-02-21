@@ -10,10 +10,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       roomName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       costPerHour: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

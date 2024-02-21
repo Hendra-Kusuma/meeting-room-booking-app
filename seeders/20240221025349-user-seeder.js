@@ -1,6 +1,7 @@
 'use strict';
 const moment = require('moment');
 require('moment-timezone');
+const bcrypt = require('bcrypt');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -11,6 +12,7 @@ module.exports = {
         name: 'Hendra Kusuma',
         email: 'hendrakusuma.vegas@gmail.com',
         phone: '08990994899',
+        password: await bcrypt.hash('123456', 10),
         createdAt: jakartaTime,
         updatedAt: jakartaTime
       },
@@ -18,6 +20,7 @@ module.exports = {
         name: 'Lisna Maria',
         email: 'naia.mumu@gmail.com',
         phone: '089935135643',
+        password: await bcrypt.hash('123456', 10),
         createdAt: jakartaTime,
         updatedAt: jakartaTime
       },
@@ -25,6 +28,7 @@ module.exports = {
         name: 'Sayyid Muhammad Lathief',
         email: 'Lathief@gmail.com',
         phone: '08361356165',
+        password: await bcrypt.hash('123456', 10),
         createdAt: jakartaTime,
         updatedAt: jakartaTime
       },
@@ -32,6 +36,7 @@ module.exports = {
         name: 'Raihan Zian Mauza',
         email: 'hello.world@gmail.com',
         phone: '087814654351',
+        password: await bcrypt.hash('123456', 10),
         createdAt: jakartaTime,
         updatedAt: jakartaTime
       },
@@ -39,6 +44,7 @@ module.exports = {
         name: 'Asyura Lathisya Humaira',
         email: 'dede.cantik@gmail.com',
         phone: '0868465435435',
+        password: await bcrypt.hash('123456', 10),
         createdAt: jakartaTime,
         updatedAt: jakartaTime
       }

@@ -1,5 +1,5 @@
-const ClientsModel = require('../models/clientsModel')
-// const User = require('../models/user.model')
+const ClientsModel = require('../models/clients')
+const User = require('../models/user')
 
 async function getClients (req, res){
     try {

@@ -21,7 +21,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "start:prod": "dotenv -e .env.production -- nodemon server.js",
+    "undo": "dotenv -e .env.development -- sequelize db:migrate:undo:all",
+    "migrate": "dotenv -e .env.development -- sequelize db:migrate",
+    "seed": "dotenv -e .env.development -- npx sequelize-cli db:seed:all"
   },
   "repository": {
     "type": "git",

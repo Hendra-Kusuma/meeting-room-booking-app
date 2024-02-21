@@ -6,8 +6,10 @@ const cookieParser = require('cookie-parser')
 const morgan = require("morgan");
 
 const clientsRoute = require('./routes/clientsRoute')
+const usersRoute = require('./routes/userRoute')
 
 app.use("/api", clientsRoute)
+app.use("/api", usersRoute)
 
 // LOGGING MIDDLEWARE
 app.use(morgan('dev'));

@@ -3,10 +3,10 @@ const User = require("../models/index");
 
 async function getRooms(req, res) {
   try {
-    const user = await User.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await User.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     room = await roomsModel.rooms.findAll();
     return res.status(200).json({
       message: "rooms fetched",

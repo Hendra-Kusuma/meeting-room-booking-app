@@ -1,9 +1,10 @@
 const express = require('express')
 require('dotenv').config();
 const app = express()
-const port = 3000
+const port = 5173
 const cookieParser = require('cookie-parser')
 const morgan = require("morgan");
+const cors = require('cors');
 
 const clientsRoute = require('./routes/clientsRoute')
 const usersRoute = require('./routes/userRoute')
@@ -15,6 +16,11 @@ const authRoute = require('./routes/authRoute')
 app.use(morgan('dev'));
 app.use(express.json())
 app.use(cookieParser())
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200 
+}));
 
 // ROUTES
 app.use("/api", clientsRoute)

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { getRooms } from "../service/product.service";
-import Rooms from "../components/fragment/Rooms";
+import Rooms from "../components/fragment/CardRooms";
 import Navbar from "../components/navbar/Navbar";
 
 function RoomsPage() {

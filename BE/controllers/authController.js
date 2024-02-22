@@ -80,7 +80,7 @@ const login = async (req, res) => {
       return res.status(StatusCodes.NOT_FOUND).send("User is not found!");
     }
 
-    const isMatch = await bcrypt.compare(enteredPassword, user.password); // Use async version
+    const isMatch = await bcrypt.compare(enteredPassword, user.password); 
     if (!isMatch) {
       return res
         .status(StatusCodes.BAD_REQUEST)

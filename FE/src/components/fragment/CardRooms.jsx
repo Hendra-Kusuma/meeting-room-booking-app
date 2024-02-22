@@ -25,12 +25,12 @@ function Body(props) {
   const { roomName } = props;
   return (
     <div className="px-5 pb-5 h-full">
-      <Link href="#">
+      <div className="font-extralight">
         <h5 className="text-2xl font-semibold tracking-tight text-white">
           Type Room : <br />
           {roomName}
         </h5>
-      </Link>
+      </div>
     </div>
   );
 }
@@ -46,8 +46,34 @@ function Footer(props) {
     </div>
   );
 }
+
+function UsageSection (props){
+  const {text} = props
+  return(
+    <h1>{text}</h1>
+  )
+}
+
+function Clients(props){
+  const {name, email, phone, credit} = props
+  return(
+    <div className="px-5 pb-5 h-full">
+      <div className="font-extralight">
+        <h5 className="text-4xl font-semibold tracking-tight text-white px-4">
+          <p className="py-4">Name : {name}</p>  
+          <p className="py-4">email : {email}</p> 
+          <p className="py-4">phone : {phone}</p> 
+          <p className="py-4">credit : {credit}</p>
+        </h5>
+      </div>
+    </div>
+  )
+}
+
 Rooms.Header = Header;
 Rooms.Body = Body;
 Rooms.Footer = Footer;
+Rooms.UsageSection = UsageSection
+Rooms.Clients = Clients
 
 export default Rooms;

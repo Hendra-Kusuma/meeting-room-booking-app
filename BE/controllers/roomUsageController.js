@@ -5,10 +5,10 @@ const roomsModel = require("../models/index");
 
 async function getRoomUsage(req, res) {
   try {
-    const user = await userModel.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await userModel.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const roomUse = await roomsUsage.roomusages.findAll();
     return res.status(200).json({
       message: "roomUse fetched",
@@ -22,10 +22,10 @@ async function getRoomUsage(req, res) {
 async function createRoomUsage(req, res) {
   try {
     const { clientId, roomId, startTime, endTime, bookingDate, quotaUsed } = req.body;
-    const user = await userModel.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await userModel.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const cekClient = await clientsModel.clients.findByPk(req.body.clientId);
     if (!cekClient) {
         return res.status(404).json({ error: "Clients not found" });
@@ -54,10 +54,10 @@ async function createRoomUsage(req, res) {
 async function updateRoomUsage(req, res) {
   try {
     const { clientId, roomId, startTime, endTime, bookingDate } = req.body;
-    const user = await userModel.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await userModel.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const cekUser = await clientsModel.clients.findByPk(req.body.clientId);
     if(!cekUser) {
         return res.status(404).json({ error: "Clients not found" });
@@ -89,10 +89,10 @@ async function updateRoomUsage(req, res) {
 
 async function deleteRoomUsage(req, res) {
   try {
-    const user = await userModel.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await userModel.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const roomUse = await roomsUsage.roomusages.findByPk(req.params.id);
     if (!roomUse) {
       return res.status(404).json({ error: "roomUsage not found" });

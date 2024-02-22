@@ -20,10 +20,10 @@ async function getRooms(req, res) {
 
 async function createRooms(req, res) {
   try {
-    const user = await User.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await User.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const { roomName, costPerHour } = req.body;
     rooms = await roomsModel.rooms.create({
       roomName: roomName,
@@ -40,10 +40,10 @@ async function createRooms(req, res) {
 
 async function updateRooms(req, res) {
   try {
-    const user = await User.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await User.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const { roomName, costPerHour } = req.body;
     const rooms = await roomsModel.rooms.findByPk(req.params.id);
     if (!rooms) {
@@ -64,10 +64,10 @@ async function updateRooms(req, res) {
 
 async function deleteRooms(req, res) {
   try {
-    const user = await User.user.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await User.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const rooms = await roomsModel.rooms.findByPk(req.params.id);
     if (!rooms) {
       return res.status(404).json({ error: "rooms not found" });

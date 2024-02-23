@@ -4,7 +4,7 @@ export const getRooms = (callback) => {
   axios
     .get("http://127.0.0.1:5173/api/rooms")
     .then((res) => {
-      callback(res.data.room);
+        callback(res.data.room);
     })
     .catch((err) => {
       console.log(err);
@@ -13,30 +13,25 @@ export const getRooms = (callback) => {
 
 export const getRoomsUsage = (callback) => {
   axios
-    .get("http://127.0.0.1:5173/api/room-usage")
-    .then((res) => {
-      callback(res.data.roomusages);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  .get("http://127.0.0.1:5173/api/room-usage")
+  .then((res) => {
+    callback(res.data.roomUse);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 };
 
-export const postLogin = (userData, callback) => {
-  const { email, password } = userData;
-
-  axios
-    .post("http://127.0.0.1:5173/api/auth/login", {
-      email: email,
-      password: password,
-    })
-    .then((res) => {
-      callback(res.data.login);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+export const postLogin = async (email, password) => {
+try {
+    const response = await axios.post("http://127.0.0.1:5173/api/auth/login", {
+    email: email,
+    password: password,
+  }); 
+  return response.data;
+} catch (error) {
+      return console.log( error);
+    }};
 
 export const postRegister = (userData, callback) => {
   const { name, email, password } = userData;

@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import Button from "../button/button";
 
 function Rooms(props) {
-    const { children } = props;
-    return (
-      <div className="flex justify-center items-center">
-        <div className="max-w-screen-lg w-full px-8 py-6 shadow-xl sm:rounded-xl bg-teal-400 m-4">
-          {children}
-        </div>
+  const { children } = props;
+  return (
+    <div className="flex justify-center items-center">
+      <div className="max-w-screen-lg w-full px-8 py-6 shadow-xl sm:rounded-xl bg-teal-400 m-4">
+        {children}
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 function Header(props) {
   const { image } = props;
@@ -47,33 +47,46 @@ function Footer(props) {
   );
 }
 
-function UsageSection (props){
-  const {text} = props
-  return(
-    <h1>{text}</h1>
-  )
+function UsageSection(props) {
+  const { clientId, roomId, startTime, endTime, bookingDate, quotaUsed } =
+    props;
+  return (
+    <div className="px-4 pb-5 h-full">
+      <div className="text-xl font-bold text-white">
+        <h1>
+          Client ID : {clientId}
+          <br />
+          Room ID : {roomId} <br />
+          Start Time : {startTime} <br />
+          End Time : {endTime} <br />
+          Booking Date : {bookingDate} <br />
+          Quota Used : {quotaUsed}
+        </h1>
+      </div>
+    </div>
+  );
 }
 
-function Clients(props){
-  const {name, email, phone, credit} = props
-  return(
+function Clients(props) {
+  const { name, email, phone, credit } = props;
+  return (
     <div className="px-5 pb-5 h-full">
       <div className="font-extralight">
         <h5 className="text-4xl font-semibold tracking-tight text-white px-4">
-          <p className="py-4">Name : {name}</p>  
-          <p className="py-4">email : {email}</p> 
-          <p className="py-4">phone : {phone}</p> 
+          <p className="py-4">Name : {name}</p>
+          <p className="py-4">email : {email}</p>
+          <p className="py-4">phone : {phone}</p>
           <p className="py-4">credit : {credit}</p>
         </h5>
       </div>
     </div>
-  )
+  );
 }
 
 Rooms.Header = Header;
 Rooms.Body = Body;
 Rooms.Footer = Footer;
-Rooms.UsageSection = UsageSection
-Rooms.Clients = Clients
+Rooms.UsageSection = UsageSection;
+Rooms.Clients = Clients;
 
 export default Rooms;

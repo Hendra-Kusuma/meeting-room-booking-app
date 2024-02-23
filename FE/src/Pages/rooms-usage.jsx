@@ -15,15 +15,26 @@ function RoomsUsage() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="flex flex-col justify-center bg-slate-100">
-      <h1 className="text-5xl font-bold text-center m-8 font-serif">Rooms Usage</h1>
-        {products.length > 0 &&
-          products.map((product) => (
-            <Rooms key={product.id}>
-              <Rooms.UsageSection/>
-            </Rooms>
-          ))}
+        <h1 className="text-5xl font-bold text-center m-8 font-serif">
+          Rooms Usage
+        </h1>
+        {products.map((product) => (
+          <Rooms key={product.id}>
+            <Rooms.UsageSection
+              clientId={product.clientId}
+              roomId={product.roomId}
+              startTime={product.startTime}
+              endTime={product.endTime}
+              bookingDate={product.bookingDate}
+              quotaUsed={product.quotaUsed}
+            />
+          </Rooms>
+        ))}
+        {/* <Rooms>
+          <Rooms.UsageSection text="" />
+        </Rooms> */}
       </div>
     </>
   );

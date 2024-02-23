@@ -3,10 +3,10 @@ const User = require("../models/index");
 
 async function getClients(req, res) {
   try {
-    const user = await User.users.findByPk(req.user.id);
-    if (!user) {
-      return res.status(404).json({ error: "You Are Not Authorized" });
-    }
+    // const user = await User.user.findByPk(req.user.id);
+    // if (!user) {
+    //   return res.status(404).json({ error: "You Are Not Authorized" });
+    // }
     const clients = await clientsModel.clients.findAll();
     return res.status(200).json({
       message: "Clients fetched",

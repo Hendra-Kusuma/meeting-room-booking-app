@@ -83,10 +83,26 @@ function Clients(props) {
   );
 }
 
+function UsersSection(props) {
+  const { name, email, phone } = props;
+  return (
+    <div className="px-5 pb-5 h-full">
+      <div className="font-extralight">
+        <h5 className="text-4xl font-semibold tracking-tight text-white px-4">
+          <p className="py-4">Name : {name}</p>
+          <p className="py-4">email : {email}</p>
+          <p className="py-4">phone : {phone}</p>
+        </h5>
+      </div>
+    </div>
+  );
+}
+
 Rooms.Header = Header;
 Rooms.Body = Body;
 Rooms.Footer = Footer;
 Rooms.UsageSection = UsageSection;
 Rooms.Clients = Clients;
+Rooms.UsersSection = UsersSection;
 
 export default Rooms;

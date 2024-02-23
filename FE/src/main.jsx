@@ -8,6 +8,7 @@ import NotFound from './Pages/404';
 import RoomsPage from './Pages/rooms';
 import RoomsUsage from './Pages/rooms-usage';
 import ClientsPage from './Pages/Clients';
+import UsersPage from './Pages/UsersPage';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/rooms" element={<RoomsPage/>} />
           <Route path="/room-usage" element={<RoomsUsage/>} />
           <Route path="/clients" element={<ClientsPage/>} />
+          <Route path="/users" element={<UsersPage/>} />
         </Routes>
       </Router>
   </React.StrictMode>,

@@ -1,3 +1,8 @@
+const Clients = require("./index");
+const Rooms = require("./index");
+
+
+
 'use strict';
 const {
   Model
@@ -11,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      roomusage.belongsTo(models.clients, { foreignKey: 'clientId', as: 'clientsName' });
+      roomusage.belongsTo(models.rooms, { foreignKey: 'roomId', as: 'roomsName' });
     }
   }
   roomusage.init({

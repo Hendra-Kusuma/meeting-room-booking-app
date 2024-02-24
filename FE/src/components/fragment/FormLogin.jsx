@@ -4,25 +4,29 @@ import { useState } from "react";
 import { postLogin } from "../../service/product.service";
 
 function FormLogin() {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const HandleLogin = async (event) => {
     event.preventDefault();
     try {
-      const email = localStorage.setItem('email', event.target.email.value)
-      const password = localStorage.setItem('password', event.target.password.value)
+      // Mengambil nilai email dan password dari state
+      const emailValue = email;
+      const passwordValue = password;
+  
+      // Periksa apakah nilai email dan password tidak kosong
+      if (!emailValue || !passwordValue) {
+        setError("Email and password are required");
+        return;
+      }
+  
+      // Panggil postLogin dengan objek yang memiliki struktur yang sesuai
+      await postLogin(emailValue, passwordValue);
       
-      await postLogin({ 
-        email: email, 
-        password: password
-       }, (data) => {
-        // Fungsi callback dijalankan ketika login berhasil
-        console.log(data)
-        alert("Login success");
-        window.location.href = "/rooms";
-      });
+      // Jika berhasil, arahkan pengguna ke halaman /rooms
+      alert("Login success");
+      window.location.href = "/rooms";
     } catch (error) {
       // Tangani kesalahan saat permintaan login
       if (error.response) {
@@ -45,8 +49,8 @@ function FormLogin() {
         id="email"
         name="email"
         placeholder="example@mail.com"
-        // value={email}
-        // onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        onClick={(e) => setEmail(e.target.value)}
       >
         Email
       </FormInput>
@@ -55,8 +59,8 @@ function FormLogin() {
         id="password"
         name="password"
         placeholder="*****"
-        // value={password}
-        // onChange={(e) => setPassword(e.target.value)}
+        value={password}
+        onClick={(e) => setPassword(e.target.value)}
       >
         Password
       </FormInput>

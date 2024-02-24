@@ -1,23 +1,37 @@
 const roomsUsage = require("../models/index");
-const userModel = require("../models/index");
 const clientsModel = require("../models/index");
 const roomsModel = require("../models/index");
 
 async function getRoomUsage(req, res) {
   try {
-    // const user = await userModel.user.findByPk(req.user.id);
-    // if (!user) {
-    //   return res.status(404).json({ error: "You Are Not Authorized" });
-    // }
-    const roomUse = await roomsUsage.roomusages.findAll();
+    const roomUsages = await roomsUsage.roomusages.findAll({
+      include: [
+        { model: clientsModel.clients, as: 'clientsName', attributes: ['name'] }, // Menggunakan model yang benar
+        { model: roomsModel.rooms, as: 'roomsName', attributes: ['roomName'] } // Menggunakan model yang benar
+      ]
+    });
+    console.log(roomUsages)
+
+    const transformedData = roomUsages.map(roomUsage => ({
+      clientId: roomUsage.clientId,
+      clientName: roomUsage.clientsName.name,
+      roomId: roomUsage.roomId,
+      roomName: roomUsage.roomsName.roomName,
+      startTime: roomUsage.startTime,
+      endTime: roomUsage.endTime,
+      bookingDate: roomUsage.bookingDate,
+      quotaUsed: roomUsage.quotaUsed
+    }));
+    
     return res.status(200).json({
       message: "roomUse fetched",
-      roomUse: roomUse,
+      roomUse: transformedData,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 }
+
 
 async function createRoomUsage(req, res) {
   try {

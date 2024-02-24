@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../button/button";
 
-function Rooms(props) {
-  const { children } = props;
+function CardRooms(props) {
+  const { children, height, width="w-full" } = props;
   return (
     <div className="flex justify-center items-center">
-      <div className="max-w-screen-lg w-full px-8 py-6 shadow-xl sm:rounded-xl bg-teal-400 m-4">
+      <div className={`${width} ${height} px-8 py-6 shadow-xl sm:rounded-xl bg-teal-400 m-4 max-w-fit`}>
         {children}
       </div>
     </div>
@@ -54,9 +54,9 @@ function UsageSection(props) {
     <div className="px-4 pb-5 h-full">
       <div className="text-xl font-bold text-white">
         <h1>
-          Client ID : {clientId}
+          Name : {clientId}
           <br />
-          Room ID : {roomId} <br />
+          Type Room : {roomId} <br />
           Start Time : {startTime} <br />
           End Time : {endTime} <br />
           Booking Date : {bookingDate} <br />
@@ -98,11 +98,11 @@ function UsersSection(props) {
   );
 }
 
-Rooms.Header = Header;
-Rooms.Body = Body;
-Rooms.Footer = Footer;
-Rooms.UsageSection = UsageSection;
-Rooms.Clients = Clients;
-Rooms.UsersSection = UsersSection;
+CardRooms.Header = Header;
+CardRooms.Body = Body;
+CardRooms.Footer = Footer;
+CardRooms.UsageSection = UsageSection;
+CardRooms.Clients = Clients;
+CardRooms.UsersSection = UsersSection;
 
-export default Rooms;
+export default CardRooms;

@@ -4,7 +4,7 @@ import Rooms from "../components/fragment/CardRooms";
 import Navbar from "../components/navbar/Navbar";
 
 function RoomsUsage() {
-  const [products, setProducts] = useState([]); // Menggunakan useState untuk mendefinisikan state products
+  const [products, setProducts] = useState([]); 
 
   useEffect(() => {
     getRoomsUsage((data) => {
@@ -23,8 +23,8 @@ function RoomsUsage() {
         {products.map((product) => (
           <Rooms key={product.id}>
             <Rooms.UsageSection
-              clientId={product.clientId}
-              roomId={product.roomId}
+              clientId={product.clientName}
+              roomId={product.roomName}
               startTime={product.startTime}
               endTime={product.endTime}
               bookingDate={product.bookingDate}

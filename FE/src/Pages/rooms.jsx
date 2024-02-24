@@ -20,7 +20,8 @@ function RoomsPage() {
       <h1 className="text-5xl font-bold text-center m-8 font-serif">Rooms Available</h1>
         {products.length > 0 &&
           products.map((product) => (
-            <Rooms key={product.id}>
+            <Rooms key={product.id} height="20" width="w-25">
+              <Rooms.Header image="./image/meeting-room.jpg" />
               <Rooms.Body roomName={product.roomName}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </Rooms.Body>

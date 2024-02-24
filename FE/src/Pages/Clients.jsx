@@ -20,6 +20,7 @@ function ClientsPage(){
           <h1 className="text-5xl font-bold text-center m-8 font-serif">Clients</h1>
             {products.length > 0 && products.map((product) => (
                 <Rooms key={product.id}>
+                    <Rooms.Header image="./image/man.jpg" />
                     <Rooms.Clients name={product.name} email={product.email} phone={product.phone} credit={product.credit}></Rooms.Clients>
                 </Rooms>
             ))}

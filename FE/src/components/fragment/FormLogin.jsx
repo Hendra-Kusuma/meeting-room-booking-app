@@ -50,7 +50,7 @@ function FormLogin() {
         name="email"
         placeholder="example@mail.com"
         value={email}
-        onClick={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value)}
       >
         Email
       </FormInput>
@@ -60,7 +60,7 @@ function FormLogin() {
         name="password"
         placeholder="*****"
         value={password}
-        onClick={(e) => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       >
         Password
       </FormInput>

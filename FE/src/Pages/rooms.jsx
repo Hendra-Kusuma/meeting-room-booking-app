@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRooms } from "../service/product.service";
-import Rooms from "../components/fragment/CardRooms";
+import CardRooms from "../components/fragment/CardRooms";
 import Navbar from "../components/navbar/Navbar";
 
 function RoomsPage() {
@@ -20,13 +20,13 @@ function RoomsPage() {
       <h1 className="text-5xl font-bold text-center m-8 font-serif">Rooms Available</h1>
         {products.length > 0 &&
           products.map((product) => (
-            <Rooms key={product.id} height="20" width="w-25">
-              <Rooms.Header image="./image/meeting-room.jpg" />
-              <Rooms.Body roomName={product.roomName}>
+            <CardRooms key={product.id} height="h-90" width="w-25">
+              <CardRooms.Header image="./image/meeting-room.jpg" />
+              <CardRooms.Body roomName={product.roomName}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </Rooms.Body>
-              <Rooms.Footer costPerHour={product.costPerHour} />
-            </Rooms>
+              </CardRooms.Body>
+              <CardRooms.Footer costPerHour={product.costPerHour} />
+            </CardRooms>
           ))}
       </div>
     </>

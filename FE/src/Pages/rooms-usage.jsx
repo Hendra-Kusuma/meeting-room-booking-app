@@ -21,7 +21,7 @@ function RoomsUsage() {
           Rooms Usage
         </h1>
         {products.map((product) => (
-          <Rooms key={product.id}>
+          <Rooms key={product.id} height="h-35" width="w-25">
             <Rooms.UsageSection
               clientId={product.clientName}
               roomId={product.roomName}

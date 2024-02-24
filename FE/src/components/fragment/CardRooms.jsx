@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import Button from "../button/button";
 
 function CardRooms(props) {
-  const { children, height, width="w-full" } = props;
+  const { children, height="h-full", width="w-full" } = props;
   return (
     <div className="flex justify-center items-center">
-      <div className={`${width} ${height} px-8 py-6 shadow-xl sm:rounded-xl bg-teal-400 m-4 max-w-fit`}>
+      <div className={`${width} ${height} px-8 py-6 shadow-3xl sm:rounded-xl bg-teal-400 m-4`}>
         {children}
       </div>
     </div>
@@ -16,7 +16,7 @@ function Header(props) {
   const { image } = props;
   return (
     <Link href="#">
-      <img src={image} alt="ps5" className="p-4 rounded-t-lg" />
+      <img src={image} alt="ps5" className="p-4 rounded-3xl" />
     </Link>
   );
 }
